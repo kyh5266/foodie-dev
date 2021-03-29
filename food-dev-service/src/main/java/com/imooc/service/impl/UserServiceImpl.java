@@ -8,6 +8,7 @@ import com.imooc.pojo.bo.UserBO;
 import com.imooc.service.UserService;
 import com.imooc.utils.DateUtil;
 import com.imooc.utils.MD5Utils;
+import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -18,11 +19,13 @@ import java.util.Date;
 
 @Service
 public class UserServiceImpl implements UserService {
-
-    private static final String USER_FACE = "https://git.imooc.com/class-73/Architect-Stage-1-Monolith/src/master/%e7%ac%ac1%e9%98%b6%e6%ae%b5%e5%8d%95%e4%bd%93%e6%9e%b6%e6%9e%84/imooc%20%e9%9d%99%e6%80%81%e8%b5%84%e6%ba%90/img/face2.png";
+    @Autowired
+    private UsersMapper usersMapper;
 
     @Autowired
-    public UsersMapper usersMapper;
+    private Sid sid;
+
+    private static final String USER_FACE = "https://git.imooc.com/class-73/Architect-Stage-1-Monolith/src/master/%e7%ac%ac1%e9%98%b6%e6%ae%b5%e5%8d%95%e4%bd%93%e6%9e%b6%e6%9e%84/imooc%20%e9%9d%99%e6%80%81%e8%b5%84%e6%ba%90/img/face2.png";
 
     /**
      * 判断用户名是否存在
@@ -47,7 +50,9 @@ public class UserServiceImpl implements UserService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Users createUser(UserBO userBO) {
+        String userId = sid.nextShort();
         Users users = new Users();
+        users.setId(userId);
         users.setUsername(userBO.getUsername());
         try {
             users.setPassword(MD5Utils.getMD5Str(userBO.getPassword()));
@@ -60,6 +65,8 @@ public class UserServiceImpl implements UserService {
         users.setSex(Sex.secret.type);
         users.setCreatedTime(new Date());
         users.setUpdatedTime(new Date());
-        return null;
+
+        usersMapper.insert(users);
+        return users;
     }
 }
