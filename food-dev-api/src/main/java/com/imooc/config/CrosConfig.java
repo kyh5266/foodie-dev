@@ -1,5 +1,6 @@
 package com.imooc.config;
 
+import com.imooc.pojo.Users;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
