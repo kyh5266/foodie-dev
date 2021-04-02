@@ -69,4 +69,17 @@ public class UserServiceImpl implements UserService {
         usersMapper.insert(users);
         return users;
     }
+
+    /**
+     * 查询用户名和密码是否匹配，用于登录
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    @Override
+    public Users queryUserForLogin(String username, String password) {
+        return null;
+    }
+
 }
