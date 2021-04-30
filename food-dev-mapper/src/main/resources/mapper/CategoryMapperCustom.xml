@@ -35,4 +35,35 @@
     WHERE
          f.father_id=#{rootCatId}
   </select>
+    <resultMap id="myNewItemsVO" type="com.imooc.pojo.vo.NewItemsVO">
+        <id column="rootCatId" property="rootCatId"/>
+        <result column="rootCatName" property="rootCatName"/>
+        <result column="slogan" property="slogan"/>
+        <result column="bgColor" property="bgColor"/>
+        <result column="catImage" property="catImage"/>
+        <collection property="simpleItemList" ofType="com.imooc.pojo.vo.SimpleItemVO">
+            <id column="itemId" property="itemId"/>
+            <result column="itemName" property="itemName"/>
+            <result column="itemUrl" property="itemUrl"/>
+        </collection>
+    </resultMap>
+    <select id="getSixNewItemsLazy" resultMap="myNewItemsVO" parameterType="Map">
+        SELECT
+         f.id as rootCatId,
+         f.`name` as rootCatName,
+         f.slogan as slogan,
+         f.bg_color as bgColor,
+         f.cat_image as catImage,
+         i.id as itemId,
+         i.item_name as itemName,
+         ii.url as itemUrl,
+         i.created_time as createdTime
+        FROM category f
+        LEFT JOIN items i ON f.id=i.root_cat_id
+        LEFT JOIN items_img ii ON ii.item_id=i.id
+        WHERE i.root_cat_id=#{paramsMap.rootCatId}
+        AND ii.is_main=1 AND f.type=1
+        ORDER BY i.created_time DESC
+        LIMIT 0,6
+    </select>
 </mapper>

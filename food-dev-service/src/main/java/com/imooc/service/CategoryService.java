@@ -2,6 +2,7 @@ package com.imooc.service;
 
 import com.imooc.pojo.Category;
 import com.imooc.pojo.vo.CategoryVO;
+import com.imooc.pojo.vo.NewItemsVO;
 import io.swagger.models.auth.In;
 
 import java.util.List;
@@ -26,6 +27,6 @@ public interface CategoryService {
      * @param rootCatId
      * @return
      */
-
+    public List<NewItemsVO> getSixNewItemsLazy(Integer rootCatId);
 
 }
