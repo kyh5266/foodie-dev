@@ -74,6 +74,8 @@ public class PassPortController {
         Users users =  userService.createUser(userBO);
         CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(users), true);
 
+        //TODO 生成用户token，存入redis
+        //TODO 同步购物车数据
         return IMOOCJSONResult.ok();
 
     }
@@ -99,6 +101,9 @@ public class PassPortController {
         users = setNull(users);
 
         CookieUtils.setCookie(request, response, "user", JsonUtils.objectToJson(users), true);
+
+        //TODO 生成用户token，存入redis
+        //TODO 同步购物车数据
         return IMOOCJSONResult.ok(users);
     }
 

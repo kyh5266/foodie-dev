@@ -77,4 +77,43 @@ public class ItemsContrlller extends BaseController{
         PagedGridResult res = itemService.queryPagedComments(itemId, level, page, pageSize);
         return IMOOCJSONResult.ok(res);
     }
+    @ApiOperation(value = "搜索商品列表", notes = "搜索商品列表", httpMethod = "GET")
+    @GetMapping("/search")
+    public IMOOCJSONResult search(@ApiParam(name = "keywords", value = "关键字", required = true)@RequestParam String keywords,
+                                    @ApiParam(name = "sort", value = "排序", required = false)@RequestParam String sort,
+                                    @ApiParam(name = "page", value = "当前页数", required = false)@RequestParam Integer page,
+                                    @ApiParam(name = "pageSize", value = "分页的每一页显示的条数", required = false)@RequestParam Integer pageSize) {
+        if (StringUtils.isBlank(keywords)) {
+            return IMOOCJSONResult.errorMsg(null);
+        }
+
+        if(page==null) {
+            page = 1;
+        }
+        if (pageSize == null) {
+            pageSize = PAGE_SIZE;
+        }
+        PagedGridResult res = itemService.searchItems(keywords, sort, page, pageSize);
+        return IMOOCJSONResult.ok(res);
+    }
+
+    @ApiOperation(value = "通过分类id搜索商品列表", notes = "通过分类id搜索商品列表", httpMethod = "GET")
+    @GetMapping("/catItems")
+    public IMOOCJSONResult catItems(@ApiParam(name = "catId", value = "三级分类id", required = true)@RequestParam Integer catId,
+                                  @ApiParam(name = "sort", value = "排序", required = false)@RequestParam String sort,
+                                  @ApiParam(name = "page", value = "当前页数", required = false)@RequestParam Integer page,
+                                  @ApiParam(name = "pageSize", value = "分页的每一页显示的条数", required = false)@RequestParam Integer pageSize) {
+        if (null == catId) {
+            return IMOOCJSONResult.errorMsg(null);
+        }
+
+        if(page==null) {
+            page = 1;
+        }
+        if (pageSize == null) {
+            pageSize = PAGE_SIZE;
+        }
+        PagedGridResult res = itemService.searchItems(catId, sort, page, pageSize);
+        return IMOOCJSONResult.ok(res);
+    }
 }

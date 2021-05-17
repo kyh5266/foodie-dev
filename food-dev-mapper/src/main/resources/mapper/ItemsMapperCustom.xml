@@ -47,7 +47,7 @@
               temp.item_id = i.id
       WHERE
           ii.is_main=1
-      <if test="paramsMap.keywords !- null and paramsMap.keywords!=''">
+      <if test="paramsMap.keywords != null and paramsMap.keywords!=''">
          AND i.item_name like '%${paramsMap.keywords}%'
       </if>
     order by
@@ -63,4 +63,44 @@
         </otherwise>
     </choose>
   </select>
+    <select id="searchItemsByThirdCat" parameterType="Map" resultType="com.imooc.pojo.vo.SearchItemsVO">
+        SELECT
+        i.id as itemId,
+        i.item_name as itemName,
+        i.sell_counts as sellCounts,
+        ii.url as imgUrl,
+        temp.price_discount as price
+        FROM
+        items i
+        LEFT JOIN
+        items_img ii
+        ON
+        ii.item_id=i.id
+        LEFT JOIN
+        (
+        SELECT
+        item_id,MIN(price_discount) as price_discount
+        FROM
+        items_spec
+        GROUP BY
+        item_id
+        ) temp
+        ON
+        temp.item_id = i.id
+        WHERE
+        ii.is_main=1
+        and i.cat_id=#{paramsMap.catId}
+        order by
+        <choose>
+            <when test="paramsMap.sort == &quot;c&quot;">
+                i.sell_counts desc
+            </when>
+            <when test="paramsMap.sort == &quot;p&quot;">
+                temp.price_discount asc
+            </when>
+            <otherwise>
+                i.item_name asc
+            </otherwise>
+        </choose>
+    </select>
 </mapper>
