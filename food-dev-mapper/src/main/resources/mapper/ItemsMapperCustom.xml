@@ -103,4 +103,25 @@
             </otherwise>
         </choose>
     </select>
+    <select id="queryItemsBySpecIds" parameterType="List" resultType="com.imooc.pojo.vo.ShopcartVO">
+        SELECT
+            items.id as itemId,
+            items.item_name as itemName,
+            items_img.url as itemImgUrl,
+            i.id as specId,
+            i.`name` as specName,
+            i.price_discount as priceDiscount,
+            i.price_normal as priceNormal
+        FROM
+            items_spec i
+        LEFT JOIN items  ON i.item_id = items.id
+        LEFT JOIN items_img on items_img.item_id=items.id
+        WHERE
+            items_img.is_main = 1
+          AND
+            i.id in 
+            <foreach collection="paramsList" index="index" item="specId" open="(" separator="," close=")">
+                #{specId}
+            </foreach>
+    </select>
 </mapper>
