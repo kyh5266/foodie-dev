@@ -1,4 +1,4 @@
-package com.imooc.service;
+package com.imooc.service.impl;
 
 import com.imooc.enums.OrderStatusEnum;
 import com.imooc.enums.YesOrNo;
@@ -7,6 +7,9 @@ import com.imooc.mapper.OrderStatusMapper;
 import com.imooc.mapper.OrdersMapper;
 import com.imooc.pojo.*;
 import com.imooc.pojo.bo.SubmitOrderBO;
+import com.imooc.service.AddressService;
+import com.imooc.service.ItemService;
+import com.imooc.service.OrderService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
      * @param submitOrderBO
      */
     @Override
-    public void createOrder(SubmitOrderBO submitOrderBO) {
+    public String createOrder(SubmitOrderBO submitOrderBO) {
         Orders orders = new Orders();
         String orderId = sid.nextShort();
 
@@ -110,5 +113,7 @@ public class OrderServiceImpl implements OrderService {
         // 4. 构建商户订单，用于传给支付中心
 
         // 5. 构建自定义订单vo
+
+        return orderId;
     }
 }

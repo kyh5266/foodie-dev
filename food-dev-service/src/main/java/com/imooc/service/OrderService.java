@@ -8,5 +8,5 @@ public interface OrderService {
      * 创建订单
      * @param submitOrderBO
      */
-    public void createOrder(SubmitOrderBO submitOrderBO);
+    public String createOrder(SubmitOrderBO submitOrderBO);
 }
