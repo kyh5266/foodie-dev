@@ -28,7 +28,7 @@ public class OrdersController extends BaseController{
     public IMOOCJSONResult create(@RequestBody SubmitOrderBO submitOrderBO, HttpServletRequest request, HttpServletResponse response) {
         System.out.println(submitOrderBO.toString());
 
-        if (submitOrderBO.getPayMethod()!=PayMethod.WEIXIN.type && submitOrderBO.getPayMethod() != PayMethod.ALIPAY.type) {
+        if (!submitOrderBO.getPayMethod().equals(PayMethod.WEIXIN.type) && !submitOrderBO.getPayMethod().equals(PayMethod.ALIPAY.type)) {
             return IMOOCJSONResult.errorMsg("不支持此支付方式");
         }
 
