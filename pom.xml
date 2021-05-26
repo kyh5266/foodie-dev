@@ -13,6 +13,7 @@
         <module>food-dev-mapper</module>
         <module>food-dev-service</module>
         <module>food-dev-api</module>
+        <module>foodie-payment</module>
     </modules>
 
     <packaging>pom</packaging>

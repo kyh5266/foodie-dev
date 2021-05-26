@@ -13,6 +13,8 @@ import com.imooc.service.OrderService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -42,6 +44,7 @@ public class OrderServiceImpl implements OrderService {
      *
      * @param submitOrderBO
      */
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public String createOrder(SubmitOrderBO submitOrderBO) {
         Orders orders = new Orders();
@@ -115,5 +118,23 @@ public class OrderServiceImpl implements OrderService {
         // 5. 构建自定义订单vo
 
         return orderId;
+    }
+
+    /**
+     * 修改订单状态
+     *
+     * @param orderId
+     * @param orderStatus
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public void updateOrderStatus(String orderId, Integer orderStatus) {
+
+        OrderStatus payOrderStatus = new OrderStatus();
+        payOrderStatus.setOrderId(orderId);
+        payOrderStatus.setOrderStatus(orderStatus);
+        payOrderStatus.setPayTime(new Date());
+
+        orderStatusMapper.updateByPrimaryKeySelective(payOrderStatus);
     }
 }
