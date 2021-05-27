@@ -7,6 +7,8 @@ import com.imooc.mapper.OrderStatusMapper;
 import com.imooc.mapper.OrdersMapper;
 import com.imooc.pojo.*;
 import com.imooc.pojo.bo.SubmitOrderBO;
+import com.imooc.pojo.vo.MerchantOrdersVO;
+import com.imooc.pojo.vo.OrderVO;
 import com.imooc.service.AddressService;
 import com.imooc.service.ItemService;
 import com.imooc.service.OrderService;
@@ -46,9 +48,10 @@ public class OrderServiceImpl implements OrderService {
      */
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public String createOrder(SubmitOrderBO submitOrderBO) {
+    public OrderVO createOrder(SubmitOrderBO submitOrderBO) {
         Orders orders = new Orders();
         String orderId = sid.nextShort();
+        Integer postAmount = 0;
 
         // 1. 新订单数据保存
         orders.setId(orderId);
@@ -65,7 +68,7 @@ public class OrderServiceImpl implements OrderService {
         orders.setReceiverName(userAddress.getReceiver());
         orders.setReceiverMobile(userAddress.getMobile());
         orders.setUserId(submitOrderBO.getUserId());
-        orders.setPostAmount(0);
+        orders.setPostAmount(postAmount);
 
         // 2. 循环根据itemSpecIds保存订单商品信息表
         String specIds[] =  submitOrderBO.getItemSpecIds().split(",");
@@ -114,10 +117,18 @@ public class OrderServiceImpl implements OrderService {
         orderStatusMapper.insert(orderStatus);
 
         // 4. 构建商户订单，用于传给支付中心
+        MerchantOrdersVO merchantOrdersVO = new MerchantOrdersVO();
+        merchantOrdersVO.setAmount(realPayAmount + postAmount);
+        merchantOrdersVO.setMerchantOrderId(orderId);
+        merchantOrdersVO.setMerchantUserId(submitOrderBO.getUserId());
+        merchantOrdersVO.setPayMethod(submitOrderBO.getPayMethod());
 
         // 5. 构建自定义订单vo
+        OrderVO orderVO = new OrderVO();
+        orderVO.setOrderId(orderId);
+        orderVO.setMerchantOrdersVO(merchantOrdersVO);
 
-        return orderId;
+        return orderVO;
     }
 
     /**
@@ -136,5 +147,17 @@ public class OrderServiceImpl implements OrderService {
         payOrderStatus.setPayTime(new Date());
 
         orderStatusMapper.updateByPrimaryKeySelective(payOrderStatus);
+    }
+
+    /**
+     * 查询订单状态
+     *
+     * @param orderId
+     * @return
+     */
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public OrderStatus queryOrderStatusInfo(String orderId) {
+        return orderStatusMapper.selectByPrimaryKey(orderId);
     }
 }
