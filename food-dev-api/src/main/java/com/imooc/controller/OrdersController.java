@@ -76,9 +76,6 @@ public class OrdersController extends BaseController{
         return HttpStatus.OK.value();
     }
 
-
-
-
     @GetMapping("/getPaidOrderInfo")
     public IMOOCJSONResult getPaidOrderInfo(String orderId) {
         OrderStatus orderStatus = orderService.queryOrderStatusInfo(orderId);
