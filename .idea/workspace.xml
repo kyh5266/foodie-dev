@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5ea35df7-7cbd-4532-b231-316c2b7bcdb3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/CarouselMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/CategoryMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/ItemsCommentsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/ItemsImgMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/ItemsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/ItemsParamMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/ItemsSpecMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/OrderItemsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/OrderStatusMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/OrdersMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/StuMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/UserAddressMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mapper/UsersMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/Carousel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/Items.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/ItemsComments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/ItemsImg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/ItemsParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/ItemsSpec.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/OrderItems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/Orders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/Stu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/UserAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/pojo/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/CarouselMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/ItemsCommentsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/ItemsImgMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/ItemsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/ItemsParamMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/ItemsSpecMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/OrderItemsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/OrderStatusMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/OrdersMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/StuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/UserAddressMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/resources/mapper/UsersMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mybatis/utils/GeneratorDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../mybatis-generator-for-imooc/src/main/java/com/imooc/mybatis/utils/GeneratorDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../前端源码/foodie-shop/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../前端源码/foodie-shop/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../天天吃货后端源码/foodie-dev/foodie-dev-mapper/src/main/resources/mapper/CategoryMapperCustom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../天天吃货后端源码/foodie-dev/foodie-dev-mapper/src/main/resources/mapper/CategoryMapperCustom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="ProjectId" id="1tNv1syqnxxN1NGAwy0u8S7a7Ze" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ea35df7-7cbd-4532-b231-316c2b7bcdb3" name="Default Changelist" comment="" />
+      <created>1622622149764</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622622149764</updated>
+      <workItem from="1622622160177" duration="1342000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="272" y="57" key="SettingsEditor" timestamp="1622622737785">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="272" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622622737785" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1622622774859">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1622622774859" />
+  </component>
+</project>
